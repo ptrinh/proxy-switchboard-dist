@@ -1,6 +1,7 @@
 # Proxy Switchboard
 
-A lightweight macOS menu-bar app that routes your traffic **per destination**.
+A lightweight menu-bar/system-tray app for **macOS, Windows, and Linux** that
+routes your traffic **per destination**.
 Send some sites through an SSH tunnel, others through a SOCKS/WireGuard/Tor
 proxy, block trackers, and keep everything else direct — all chosen by simple
 hostname or CIDR rules, switchable from the menu bar.
@@ -42,6 +43,8 @@ where each connection goes based on your rules.
 
 ## Install
 
+### macOS
+
 Requires macOS 13 (Ventura) or later, Apple Silicon or Intel.
 
 **Homebrew:**
@@ -50,14 +53,50 @@ Requires macOS 13 (Ventura) or later, Apple Silicon or Intel.
 brew install --cask ptrinh/tap/proxy-switchboard
 ```
 
-**Direct download:** grab the latest `Proxy Switchboard.app.zip` from
+**Direct download:** grab the latest `Proxy-Switchboard-<version>.zip` from
 [Releases](https://github.com/ptrinh/proxy-switchboard-dist/releases), unzip, and
 move it to `/Applications`. The app updates itself automatically thereafter
 (via Sparkle).
 
-The app is signed with a Developer ID. If macOS Gatekeeper blocks the first
-launch, **right-click → Open** once (or run
-`xattr -dr com.apple.quarantine "/Applications/Proxy Switchboard.app"`).
+The app is signed with a Developer ID **and notarized by Apple** (since 1.2.0),
+so it launches without Gatekeeper warnings.
+
+### Windows
+
+1. Download `ProxySwitchboard-win-amd64.zip` from
+   [Releases](https://github.com/ptrinh/proxy-switchboard-dist/releases).
+2. Extract it to a folder of your choice (e.g. `C:\Proxy Switchboard`).
+   Keep `switchboard-tray.exe` and `switchboard.exe` **in the same folder** —
+   the tray launches the engine sitting next to it.
+3. Run `switchboard-tray.exe` — an icon appears in the system tray.
+   The binaries are not code-signed yet, so SmartScreen may warn on first run:
+   click **More info → Run anyway**.
+4. Right-click the tray icon → **Settings…** to add proxies and rules, then
+   **Turn On**. Enable **Start at login** in Settings to run it automatically.
+
+Updates: **Check for Updates** in the tray menu shows new versions and opens
+the download; quit the app before replacing the two `.exe` files.
+
+### Linux
+
+1. Download `ProxySwitchboard-linux-amd64.zip` (or `-arm64`) from
+   [Releases](https://github.com/ptrinh/proxy-switchboard-dist/releases).
+2. Extract, make the binaries executable, and run the tray:
+
+   ```sh
+   unzip ProxySwitchboard-linux-amd64.zip -d ~/proxy-switchboard
+   cd ~/proxy-switchboard && chmod +x switchboard switchboard-tray
+   ./switchboard-tray
+   ```
+
+3. The tray icon uses the StatusNotifier/AppIndicator protocol — KDE, XFCE and
+   most desktops support it out of the box; on GNOME install the
+   [AppIndicator extension](https://extensions.gnome.org/extension/615/appindicator-support/).
+4. Right-click the tray icon → **Settings…** (opens in your browser), add
+   proxies and rules, then **Turn On**.
+
+Headless (servers / no tray): run the engine directly with
+`./switchboard -config switchboard.yaml`.
 
 ## Quick start
 
