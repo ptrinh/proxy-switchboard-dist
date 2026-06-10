@@ -40,6 +40,8 @@ where each connection goes based on your rules.
 | **Proxy Servers** — add/edit proxies and test latency. | **Routing Rules** — per-destination rules with the Popular Services importer. |
 | ![Advanced](screenshots/advanced.png) | |
 | **Advanced** — proxy groups, Share to LAN, multiple instances, TUN mode. | |
+| ![Windows tray](screenshots/windows-menu.png) | ![Windows settings](screenshots/windows-config.png) |
+| **Windows** — system-tray menu: turn on/off, switch proxy and routing mode. | **Windows/Linux Settings** — browser-based settings with live engine status. |
 
 ## Install
 
