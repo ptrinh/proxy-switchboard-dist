@@ -2,6 +2,14 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
     <item>
+      <title>Version 1.1.2</title>
+      <pubDate>Wed, 10 Jun 2026 06:15:49 +0000</pubDate>
+      <sparkle:version>1.1.2</sparkle:version>
+      <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+      <enclosure url="https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.1.2/Proxy-Switchboard-1.1.2.zip" type="application/octet-stream" sparkle:edSignature="Q7C/syxh1Lwa7vb4yLYymztcXK04UZ3AkWTgxkeSaTwIxWYut6Vo0rdVlQ2c8k9Zg5lQwKxpaDASLaR2yh1bCA==" length="10358721" />
+    </item>
+    <item>
       <title>Version 1.1.1</title>
       <pubDate>Wed, 10 Jun 2026 04:32:09 +0000</pubDate>
       <sparkle:version>1.1.1</sparkle:version>
