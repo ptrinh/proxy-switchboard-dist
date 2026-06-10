@@ -1,9 +1,9 @@
 {
-  "version": "1.1.3",
-  "notes": "Cross-platform tray (Windows/Linux): full Settings, Statistics, licensing, autostart.",
+  "version": "1.2.0",
+  "notes": "Security-hardened Settings API, route tester, live engine status, full i18n (13 languages incl. RTL), modern dark-mode UI, lower RAM/CPU, smaller binaries, log rotation.",
   "downloads": {
-    "windows-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.1.3/ProxySwitchboard-win-amd64.zip",
-    "linux-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.1.3/ProxySwitchboard-linux-amd64.zip",
-    "linux-arm64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.1.3/ProxySwitchboard-linux-arm64.zip"
+    "windows-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.2.0/ProxySwitchboard-win-amd64.zip",
+    "linux-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.2.0/ProxySwitchboard-linux-amd64.zip",
+    "linux-arm64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.2.0/ProxySwitchboard-linux-arm64.zip"
   }
 }
