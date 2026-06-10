@@ -29,6 +29,17 @@ where each connection goes based on your rules.
   config file. SSH uses your existing `~/.ssh` keys and `ssh-agent`.
 - **Share to LAN** (optional) so other devices can use the proxy.
 
+## Screenshots
+
+| | |
+|---|---|
+| ![Menu bar](screenshots/menu-bar.png) | ![General](screenshots/general.png) |
+| **Menu bar** — turn on/off, switch the default proxy and routing mode. | **General** — listening port, language, and startup options. |
+| ![Proxy Servers](screenshots/proxy-servers.png) | ![Routing Rules](screenshots/routing-rules.png) |
+| **Proxy Servers** — add/edit proxies and test latency. | **Routing Rules** — per-destination rules with the Popular Services importer. |
+| ![Advanced](screenshots/advanced.png) | |
+| **Advanced** — proxy groups, Share to LAN, multiple instances, TUN mode. | |
+
 ## Install
 
 Requires macOS 13 (Ventura) or later, Apple Silicon or Intel.
