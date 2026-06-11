@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Proxy Switchboard — rule-based proxy routing for macOS, iOS, Windows &amp; Linux</title>
+<meta name="description" content="Route your traffic per destination through SSH, SOCKS5, Shadowsocks, WireGuard or Tor. Your servers, your rules. macOS, iOS, Windows and Linux. No accounts, no tracking.">
+<meta property="og:title" content="Proxy Switchboard">
+<meta property="og:description" content="Per-destination proxy routing over SSH, SOCKS5, Shadowsocks, WireGuard and Tor — on macOS, iOS, Windows and Linux.">
+<meta property="og:image" content="https://ptrinh.github.io/proxy-switchboard-dist/logo.png">
+<link rel="icon" type="image/png" href="logo.png">
+<style>
+:root{
+  color-scheme: light dark;
+  --blue1:#4f9eff; --blue2:#215ceb; --blue3:#0a216b;
+  --bg:#f6f8fc; --card:#ffffff; --text:#0d1b3e;
+  --muted:#56617f; --border:#e3e9f5; --accent:#215ceb;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0b1020; --card:#141b30; --text:#e8edf8; --muted:#9aa6c4; --border:#243052; --accent:#4f9eff; }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1020px;margin:0 auto;padding:0 24px}
+
+/* Hero */
+.hero{background:linear-gradient(140deg,var(--blue1) 0%,var(--blue2) 55%,var(--blue3) 100%);color:#fff;text-align:center;padding:72px 24px 84px}
+.hero img.logo{width:112px;height:112px;border-radius:26px;box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.hero h1{font-size:2.6rem;margin:20px 0 10px;letter-spacing:-.02em}
+.hero p.tag{font-size:1.25rem;max-width:640px;margin:0 auto;opacity:.95}
+.hero p.sub{font-size:.95rem;margin-top:10px;opacity:.8}
+.btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px}
+.btn{display:inline-block;padding:12px 22px;border-radius:12px;font-weight:600;font-size:.95rem;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(4px)}
+.btn:hover{background:rgba(255,255,255,.25);text-decoration:none}
+.btn.primary{background:#fff;color:var(--blue2);border-color:#fff}
+.btn.primary:hover{background:#eaf1ff}
+.btn small{display:block;font-weight:400;font-size:.72rem;opacity:.75}
+
+/* Sections */
+section{padding:64px 0}
+h2{font-size:1.7rem;text-align:center;margin-bottom:8px;letter-spacing:-.01em}
+p.lead{text-align:center;color:var(--muted);max-width:640px;margin:0 auto 40px}
+
+/* Features */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px}
+.card h3{font-size:1.05rem;margin-bottom:6px}
+.card .ic{font-size:1.5rem;display:block;margin-bottom:10px}
+.card p{font-size:.92rem;color:var(--muted)}
+
+/* Screenshots */
+.shots{display:flex;gap:18px;overflow-x:auto;padding:6px 2px 18px;scroll-snap-type:x mandatory}
+.shots figure{flex:0 0 auto;scroll-snap-align:center;text-align:center}
+.shots img{border-radius:14px;border:1px solid var(--border);box-shadow:0 8px 30px rgba(10,33,107,.12);height:340px;width:auto}
+.shots figcaption{font-size:.8rem;color:var(--muted);margin-top:8px}
+
+/* Downloads */
+.dl .card{display:flex;flex-direction:column}
+.dl .card .links{margin-top:auto;padding-top:14px}
+.dl .card .links a{display:inline-block;margin:3px 10px 3px 0;font-weight:600;font-size:.92rem}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;background:var(--accent);color:#fff;border-radius:6px;padding:2px 8px;margin-left:8px;vertical-align:middle}
+.note{font-size:.8rem;color:var(--muted);margin-top:6px}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:32px 0 48px;text-align:center;font-size:.85rem;color:var(--muted)}
+footer a{margin:0 10px}
+@media (max-width:520px){ .hero h1{font-size:2rem} .shots img{height:260px} section{padding:44px 0} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="logo" src="logo.png" alt="Proxy Switchboard logo" width="112" height="112">
+  <h1>Proxy Switchboard</h1>
+  <p class="tag">Route your traffic <strong>per destination</strong> through SSH, SOCKS5, Shadowsocks, WireGuard or Tor — with simple hostname rules.</p>
+  <p class="sub">Your servers. Your rules. No accounts, no tracking, no bundled VPN.</p>
+  <div class="btns">
+    <a class="btn primary" href="https://github.com/ptrinh/proxy-switchboard-dist/releases/latest">Download for macOS<small>macOS 13+ · auto-updates</small></a>
+    <a class="btn" href="#ios">iOS<small>coming soon to the App&nbsp;Store</small></a>
+    <a class="btn" href="#downloads">Windows<small>64-bit</small></a>
+    <a class="btn" href="#downloads">Linux<small>amd64 · arm64</small></a>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>One switchboard for all your proxies</h2>
+    <p class="lead">Send some sites through an SSH tunnel, others through SOCKS5 or WireGuard, block trackers, and keep everything else direct — switchable from the menu bar or your iPhone.</p>
+    <div class="grid">
+      <div class="card"><span class="ic">🗺️</span><h3>Rule-based routing</h3><p>Match by hostname (<code>*.example.com</code>), exact host or CIDR. First match wins; everything else follows your default. A built-in route tester shows exactly which rule applies.</p></div>
+      <div class="card"><span class="ic">🔌</span><h3>Every protocol you use</h3><p>SSH tunnels (with a built-in terminal), SOCKS5, HTTP(S), Shadowsocks, WireGuard (userspace), Tor, and a blocking sink for ads &amp; trackers.</p></div>
+      <div class="card"><span class="ic">⚖️</span><h3>Groups &amp; failover</h3><p>Bundle proxies into a group with round-robin or least-latency selection and automatic failover when one goes down.</p></div>
+      <div class="card"><span class="ic">📊</span><h3>Live stats</h3><p>Per-proxy and per-destination bandwidth in real time. On iOS, long-press any hostname to turn it into a rule.</p></div>
+      <div class="card"><span class="ic">🔍</span><h3>HTTPS inspection</h3><p>A built-in MITM debugger logs requests and responses on-device — like a traffic inspector in your pocket. Your data never leaves your machine.</p></div>
+      <div class="card"><span class="ic">📶</span><h3>Share over Wi-Fi</h3><p>Turn one device into a proxy for your whole network, with optional authentication and a browser-based settings editor.</p></div>
+      <div class="card"><span class="ic">🔑</span><h3>Private by design</h3><p>No accounts and no data collection. Secrets live in the system Keychain, never in config files. You bring the servers you already trust.</p></div>
+      <div class="card"><span class="ic">🔁</span><h3>Configs that travel</h3><p>One YAML config works across desktop and iOS. Import servers by QR code, link or subscription URL. Localized into 13 languages.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="screens" style="padding-top:0">
+  <div class="wrap">
+    <h2>At home on every screen</h2>
+    <p class="lead">A menu-bar app on the desktop, a native SwiftUI app with widgets on iPhone and iPad.</p>
+    <div class="shots">
+      <figure><img src="screenshots/ios-rules.png" alt="iOS rules and route tester"><figcaption>iOS — rules &amp; route tester</figcaption></figure>
+      <figure><img src="screenshots/ios-stats.png" alt="iOS live stats"><figcaption>iOS — live stats</figcaption></figure>
+      <figure><img src="screenshots/menu-bar.png" alt="macOS menu bar"><figcaption>macOS — menu bar</figcaption></figure>
+      <figure><img src="screenshots/routing-rules.png" alt="macOS routing rules"><figcaption>macOS — routing rules</figcaption></figure>
+      <figure><img src="screenshots/general.png" alt="macOS settings"><figcaption>macOS — settings</figcaption></figure>
+      <figure><img src="screenshots/windows-config.png" alt="Windows configuration"><figcaption>Windows — settings</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="downloads" style="padding-top:0">
+  <div class="wrap">
+    <h2>Get Proxy Switchboard</h2>
+    <p class="lead">Free to use on the desktop. The iOS app ships with a free tier and a one-time Pro unlock — no subscriptions.</p>
+    <div class="grid dl">
+      <div class="card">
+        <h3> macOS</h3>
+        <p>Menu-bar app, signed &amp; notarized, auto-updates via Sparkle. Requires macOS 13 Ventura or later.</p>
+        <div class="links"><a href="https://github.com/ptrinh/proxy-switchboard-dist/releases/latest">Download latest ↓</a></div>
+      </div>
+      <div class="card" id="ios">
+        <h3> iOS &amp; iPadOS <span class="badge">Coming&nbsp;soon</span></h3>
+        <p>Full packet-tunnel VPN with rules, widgets, QR import and on-device HTTPS inspection. In App&nbsp;Store review now.</p>
+        <div class="links"><span class="note">App Store link will appear here at launch.</span></div>
+      </div>
+      <div class="card">
+        <h3>🪟 Windows</h3>
+        <p>System-tray app for Windows 10/11, 64-bit. Unzip and run.</p>
+        <div class="links"><a href="https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.2.0/ProxySwitchboard-win-amd64.zip">Download for Windows ↓</a></div>
+      </div>
+      <div class="card">
+        <h3>🐧 Linux</h3>
+        <p>System-tray app, amd64 and arm64 builds.</p>
+        <div class="links">
+          <a href="https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.2.0/ProxySwitchboard-linux-amd64.zip">amd64 ↓</a>
+          <a href="https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.2.0/ProxySwitchboard-linux-arm64.zip">arm64 ↓</a>
+        </div>
+      </div>
+    </div>
+    <p class="note" style="text-align:center;margin-top:18px">All releases are published on <a href="https://github.com/ptrinh/proxy-switchboard-dist/releases">GitHub Releases</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>
+      <a href="privacy.html">Privacy</a> ·
+      <a href="https://github.com/ptrinh/proxy-switchboard-dist">GitHub</a> ·
+      <a href="mailto:phil@trinh.uk">Contact</a>
+    </p>
+    <p style="margin-top:10px">© 2026 Phil Trinh — Proxy Switchboard is a client for proxy infrastructure you provide; it operates no servers and collects no data.</p>
+  </div>
+</footer>
+
+</body>
+</html>
