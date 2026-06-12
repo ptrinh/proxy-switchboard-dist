@@ -33,10 +33,10 @@
 </head>
 <body>
 <h1>Privacy Policy</h1>
-<p class="meta">Proxy Switchboard · Effective date: 11 June 2026</p>
+<p class="meta">Proxy Switchboard · Effective date: 13 June 2026</p>
 
-<p>Proxy Switchboard (“the app”) is a per-destination network router for iOS and
-macOS. This policy explains what the app does and does not do with your
+<p>Proxy Switchboard (“the app”) is a per-destination network router for Android,
+iOS, and macOS. This policy explains what the app does and does not do with your
 information. It is deliberately short because the app collects no personal
 data.</p>
 
@@ -50,9 +50,11 @@ servers that receive your data.</p>
   <li><strong>Proxy configurations and routing rules</strong> (proxy addresses,
   hostnames, CIDRs, routing modes) are stored <strong>only on your device</strong>.</li>
   <li><strong>Secrets</strong> — proxy passwords, SSH private keys and
-  passphrases, and WireGuard keys — are stored in the device
-  <strong>Keychain</strong>. They are shared only between the app and its
-  bundled network extension so the proxy engine can use them, and are never sent
+  passphrases, and WireGuard keys — are stored in the device's secure
+  storage: the <strong>Keychain</strong> on iOS/macOS, and
+  <strong>encrypted storage backed by the Android Keystore</strong> on Android.
+  They are shared only between the app and its bundled network
+  extension/VPN service so the proxy engine can use them, and are never sent
   to us.</li>
   <li>Configuration is shared between the app and its network extension through a
   private container on your device.</li>
@@ -72,11 +74,18 @@ their handling of traffic is governed by their own policies, not this one.</p>
 maps names to internal placeholder addresses. These lookups are processed
 on-device and are not recorded off-device.</p>
 
+<h2>Camera (Android)</h2>
+<p>On Android the app can use the <strong>camera</strong>, only when you open
+the QR scanner, to import proxy configurations from QR codes. Frames are
+processed on-device and are never stored, recorded, or uploaded. The app works
+fully without camera access.</p>
+
 <h2>In-App Purchases</h2>
 <p>Purchases (for example, “Proxy Switchboard Pro”) are processed by
-<strong>Apple</strong> through the App Store. We do not receive your payment
-details. Apple’s handling of purchase data is governed by Apple’s privacy
-policy.</p>
+<strong>Apple</strong> through the App Store or by <strong>Google</strong>
+through Google Play. We do not receive your payment details. Their handling of
+purchase data is governed by Apple’s and Google’s own privacy
+policies.</p>
 
 <h2>Data sharing</h2>
 <p>None. Because we collect no data, there is nothing to share with third
