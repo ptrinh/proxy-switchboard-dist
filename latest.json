@@ -1,9 +1,11 @@
 {
-  "version": "1.3.0",
-  "notes": "Browser-based settings editor (Allow web control), refreshed brand icon and menu-bar glyph, and web config improvements: dark mode, mobile-friendly layout, rule reordering, and masked password fields.",
+  "version": "1.3.1",
+  "notes": "Web config: routing-only mode now shows clearly that proxy editing needs full control instead of silently dropping new proxies. First Android release: native Compose app with per-app split tunnel, QR import, home-screen widget and Android TV support.",
   "downloads": {
-    "windows-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.3.0/ProxySwitchboard-win-amd64.zip",
-    "linux-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.3.0/ProxySwitchboard-linux-amd64.zip",
-    "linux-arm64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.3.0/ProxySwitchboard-linux-arm64.zip"
+    "windows-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.3.1/ProxySwitchboard-win-amd64.zip",
+    "linux-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.3.1/ProxySwitchboard-linux-amd64.zip",
+    "linux-arm64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.3.1/ProxySwitchboard-linux-arm64.zip",
+    "android-arm64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.3.1/ProxySwitchboard-1.3.1-android-arm64.apk",
+    "android-universal": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.3.1/ProxySwitchboard-1.3.1-android-universal.apk"
   }
 }
