@@ -1,11 +1,11 @@
 {
-  "version": "1.3.1",
-  "notes": "Web config: routing-only mode now shows clearly that proxy editing needs full control instead of silently dropping new proxies. First Android release: native Compose app with per-app split tunnel, QR import, home-screen widget and Android TV support.",
+  "version": "1.4.0",
+  "notes": "Opt-in crash reporting (off by default, self-hosted, scrubbed of secrets and traffic). Faster Shadowsocks and SSH (hardware AES-GCM). TUN mode: QUIC/UDP now flows through direct and SOCKS5 routes, plus per-app stats on macOS and a Share-on-LAN fix. macOS no longer shows a false 'authorization cancelled' error in TUN and Keychain secrets work there; the Windows tray no longer flashes a console window; the Default Proxy menu lists Direct, then Blocked, then your proxies.",
   "downloads": {
-    "windows-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.3.1/ProxySwitchboard-win-amd64.zip",
-    "linux-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.3.1/ProxySwitchboard-linux-amd64.zip",
-    "linux-arm64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.3.1/ProxySwitchboard-linux-arm64.zip",
-    "android-arm64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.3.1/ProxySwitchboard-1.3.1-android-arm64.apk",
-    "android-universal": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.3.1/ProxySwitchboard-1.3.1-android-universal.apk"
+    "windows-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.4.0/ProxySwitchboard-windows-amd64.zip",
+    "linux-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.4.0/ProxySwitchboard-linux-amd64.zip",
+    "linux-arm64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.4.0/ProxySwitchboard-linux-arm64.zip",
+    "android-arm64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.4.0/ProxySwitchboard-1.4.0-android-arm64-v8a.apk",
+    "android-universal": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.4.0/ProxySwitchboard-1.4.0-android-universal.apk"
   }
 }
