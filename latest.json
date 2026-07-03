@@ -5,7 +5,7 @@
     "windows-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.4.3/ProxySwitchboard-windows-amd64.zip",
     "linux-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.4.3/ProxySwitchboard-linux-amd64.zip",
     "linux-arm64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.4.3/ProxySwitchboard-linux-arm64.zip",
-    "android-arm64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.4.3/ProxySwitchboard-1.4.3-android-arm64-v8a.apk",
-    "android-universal": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.4.3/ProxySwitchboard-1.4.3-android-universal.apk"
+    "android-arm64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.4.5/ProxySwitchboard-1.4.5-android-arm64-v8a.apk",
+    "android-universal": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.4.5/ProxySwitchboard-1.4.5-android-universal.apk"
   }
 }
