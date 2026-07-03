@@ -1,10 +1,10 @@
 {
-  "version": "1.4.3",
-  "notes": "Config edits now apply to the running engine instantly (no reconnect), and a rule pointing at an unavailable proxy fails closed instead of leaking traffic out directly. Connections to a stalled proxy now time out instead of hanging, and exact-IP rules take priority over broader CIDR ranges. The tray no longer shows a false 'update available' prompt and is hardened against internal races; WireGuard uses less CPU when idle.",
+  "version": "1.4.6",
+  "notes": "Engine reliability: proxies with a hostname upstream now resolve robustly on networks that force private DNS, connections to a stalled proxy time out instead of hanging, and rules failover cleanly when a proxy is down. Download links now always track the latest release.",
   "downloads": {
-    "windows-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.4.3/ProxySwitchboard-windows-amd64.zip",
-    "linux-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.4.3/ProxySwitchboard-linux-amd64.zip",
-    "linux-arm64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/download/v1.4.3/ProxySwitchboard-linux-arm64.zip",
+    "windows-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/latest/download/ProxySwitchboard-windows-amd64.zip",
+    "linux-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/latest/download/ProxySwitchboard-linux-amd64.zip",
+    "linux-arm64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/latest/download/ProxySwitchboard-linux-arm64.zip",
     "android-arm64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/latest/download/ProxySwitchboard-android-arm64-v8a.apk",
     "android-universal": "https://github.com/ptrinh/proxy-switchboard-dist/releases/latest/download/ProxySwitchboard-android-universal.apk"
   }
