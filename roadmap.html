@@ -25,7 +25,9 @@
   p, li { margin: .5rem 0; }
   ul { padding-left: 1.25rem; }
   a { color: #0066cc; }
-  code { background: #f2f2f7; padding: .1em .35em; border-radius: 4px; font-size: .9em; }
+  /* Theme-independent chip: translucent gray works on light or dark, and
+     color:inherit always matches the page's text color (readable in both). */
+  code { background: rgba(128,128,128,.2); color: inherit; padding: .1em .35em; border-radius: 4px; font-size: .9em; }
   hr { border: none; border-top: 1px solid #d2d2d7; margin: 2.5rem 0; }
   footer { color: #6e6e73; font-size: .85rem; }
   @media (prefers-color-scheme: dark) { hr { border-top-color: #3a3a3c; } footer { color: #98989d; } }
