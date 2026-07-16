@@ -1,6 +1,6 @@
 {
-  "version": "1.4.6",
-  "notes": "Engine reliability: proxies with a hostname upstream now resolve robustly on networks that force private DNS, connections to a stalled proxy time out instead of hanging, and rules failover cleanly when a proxy is down. Download links now always track the latest release.",
+  "version": "1.4.9",
+  "notes": "Much faster WireGuard proxy speeds, warm connections for quicker stream starts, CIDR hints in the rule editor, a Test Route that explains why a route fails, cleaner UDP handling through proxies, and a built-in WebRTC leak guide (About WebRTC Leaks in settings). Android: fixes a rare startup crash after restoring from a backup.",
   "downloads": {
     "windows-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/latest/download/ProxySwitchboard-windows-amd64.zip",
     "linux-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/latest/download/ProxySwitchboard-linux-amd64.zip",
