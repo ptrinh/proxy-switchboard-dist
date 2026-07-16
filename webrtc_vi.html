@@ -3,162 +3,72 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WebRTC &amp; lộ IP — Proxy Switchboard</title>
-<meta name="description" content="Cách ngăn WebRTC làm lộ địa chỉ IP thật khi đang dùng Proxy Switchboard, cho cả máy tính và điện thoại.">
+<title>WebRTC & lộ IP — Proxy Switchboard</title>
+<meta name="description" content="Ngăn WebRTC làm lộ IP thật khi dùng Proxy Switchboard, trên điện thoại và máy tính.">
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/png" href="logo.png">
 <style>
   :root { color-scheme: light dark; }
   * { box-sizing: border-box; }
   body {
-    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+    font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 640px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
     color: #1d1d1f; background: #fff;
   }
-  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 .25rem; }
-  h2 { font-size: 1.25rem; margin: 2.25rem 0 .5rem; }
-  h3 { font-size: 1.05rem; margin: 1.5rem 0 .35rem; }
-  .meta { color: #6e6e73; font-size: .9rem; margin-bottom: .5rem; }
-  .lang { font-size: .9rem; margin-bottom: 2rem; }
+  h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 .25rem; }
+  h2 { font-size: 1.2rem; margin: 2rem 0 .4rem; }
+  .meta { color: #6e6e73; font-size: .9rem; }
+  .lang { font-size: .9rem; margin: .25rem 0 2rem; }
   p, li { margin: .5rem 0; }
-  ul, ol { padding-left: 1.25rem; }
+  ul { padding-left: 1.2rem; }
   a { color: #0066cc; }
-  code { background: #f2f2f7; padding: .1em .35em; border-radius: 4px; font-size: .9em; }
+  code { background: #f2f2f7; padding: .1em .35em; border-radius: 4px; font-size: .88em; }
   hr { border: none; border-top: 1px solid #d2d2d7; margin: 2.5rem 0; }
   footer { color: #6e6e73; font-size: .85rem; }
-  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .95rem; }
-  th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid #d2d2d7; vertical-align: top; }
-  th { font-weight: 600; }
-  .note {
-    background: #f2f2f7; border-left: 3px solid #0066cc; border-radius: 6px;
-    padding: .75rem 1rem; margin: 1.25rem 0;
-  }
-  .ok { color: #0a7d32; font-weight: 600; }
-  .warn { color: #b3300b; font-weight: 600; }
+  .box { background: #f2f2f7; border-radius: 10px; padding: .5rem 1.1rem; margin: 1.25rem 0; }
   @media (prefers-color-scheme: dark) {
     body { color: #e8e8ed; background: #1c1c1e; }
-    a { color: #6db3ff; }
-    code { background: #2c2c2e; }
+    a { color: #6db3ff; } code { background: #2c2c2e; }
     .meta, .lang, footer { color: #98989d; }
-    hr, th, td { border-color: #3a3a3c; }
-    .note { background: #2c2c2e; border-left-color: #6db3ff; }
-    .ok { color: #4cd371; }
-    .warn { color: #ff8a65; }
+    hr { border-top-color: #3a3a3c; } .box { background: #2c2c2e; }
   }
 </style>
 </head>
 <body>
 <h1>WebRTC &amp; lộ IP</h1>
-<p class="meta">Proxy Switchboard · Giữ IP thật ẩn khi đã bật proxy</p>
+<p class="meta">Proxy Switchboard</p>
 <p class="lang">🌐 Tiếng Việt · <a href="webrtc.html">English</a></p>
 
-<p>Ngay cả khi đã bật proxy, một tính năng tên là <strong>WebRTC</strong> vẫn có thể
-làm lộ địa chỉ IP thật của bạn. Bài này giải thích vì sao, và cách chặn nó trên
-cả máy tính lẫn điện thoại.</p>
+<p>Dù đã bật proxy, một tính năng của trình duyệt tên là <strong>WebRTC</strong>
+vẫn có thể làm lộ địa chỉ IP thật của bạn. Cách chặn như sau.</p>
 
-<h2>Vì sao WebRTC làm lộ IP</h2>
-<p>WebRTC (dùng cho gọi video, gọi thoại, và một số trang web kết nối trực tiếp
-ngang hàng) tìm IP công khai của bạn bằng cách nói chuyện với
-<strong>máy chủ STUN qua UDP, đi thẳng</strong>. Đường UDP trực tiếp đó đi
-<em>vòng qua</em> proxy <strong>SOCKS/HTTP</strong> ở tầng ứng dụng — vốn chỉ
-mang các kết nối TCP mà trình duyệt chủ động gửi vào. Vì vậy các request thông
-thường hiển thị đúng IP của proxy, nhưng WebRTC vẫn có thể phơi ra IP thật —
-kể cả địa chỉ <strong>IPv6</strong> thật của bạn, ngay cả khi IPv6 phần còn lại
-đã bị tắt.</p>
+<h2>📱 Điện thoại (Android / iOS)</h2>
+<p>Đã được bảo vệ sẵn — app chạy dạng VPN, phủ hết mọi kết nối. Chỉ cần giữ proxy
+<strong>đang kết nối</strong>. Không cần làm gì thêm.</p>
 
-<div class="note">
-<strong>Tự kiểm tra:</strong> bật proxy rồi mở
-<a href="https://browserleaks.com/webrtc">browserleaks.com/webrtc</a>
-(hoặc <a href="https://browserleaks.com/ip">/ip</a>). Ở mục <em>WebRTC</em>,
-Public IP phải là IP của <strong>proxy</strong> (hoặc để trống) —
-<strong>không</strong> phải IP thật. Nhớ kiểm tra cả IPv4 lẫn IPv6.
+<h2>💻 Máy tính (Mac / Windows / Linux)</h2>
+<p>Bật <strong>TUN mode</strong> trong app (Settings → Advanced, hoặc trên thanh
+menu). Nó tự bảo vệ mọi ứng dụng. Lần đầu bật sẽ hỏi mật khẩu.</p>
+
+<div class="box">
+<p><strong>Không muốn dùng TUN mode?</strong> Chỉnh trong trình duyệt thay thế:</p>
+<ul>
+  <li><strong>Chrome / Edge / Brave</strong> — cài extension “WebRTC Leak
+  Prevent” và đặt về <em>dùng proxy của bạn</em>.</li>
+  <li><strong>Firefox</strong> — mở <code>about:config</code>, đặt
+  <code>media.peerconnection.enabled</code> thành <code>false</code>.</li>
+  <li><strong>Safari</strong> — dùng TUN mode ở trên.</li>
+</ul>
 </div>
 
-<h2>Tóm tắt nhanh</h2>
-<table>
-  <tr><th>Nền tảng</th><th>Cách chặn lộ IP</th></tr>
-  <tr><td><strong>Điện thoại</strong> (Android / iOS)</td><td><span class="ok">Đã an toàn sẵn</span> — app chạy dạng VPN, bắt toàn bộ traffic (kể cả UDP). Chỉ cần giữ proxy đang kết nối.</td></tr>
-  <tr><td><strong>Máy tính</strong> (macOS / Linux / Windows)</td><td>Bật <strong>TUN mode</strong> (tốt nhất), <em>hoặc</em> chỉnh một thiết lập trong trình duyệt (bên dưới).</td></tr>
-</table>
+<h2>✅ Kiểm tra lại</h2>
+<p>Bật proxy rồi mở <a href="https://browserleaks.com/webrtc">browserleaks.com/webrtc</a>.
+IP hiển thị phải là IP của <strong>proxy</strong> — không phải IP thật của bạn.</p>
 
-<h2>Điện thoại — Android &amp; iOS</h2>
-<p>Trên điện thoại, Proxy Switchboard chạy dưới dạng <strong>VPN</strong> của hệ
-thống (Android VpnService / iOS Network Extension). Đây là chế độ full-tunnel:
-nó bắt <strong>mọi</strong> kết nối thiết bị tạo ra, bao gồm cả UDP mà WebRTC
-dùng. Nên khi proxy bật, WebRTC bị định tuyến qua proxy hoặc bị chặn — nó
-<strong>không thể</strong> tự đi thẳng ra ngoài để lộ IP thật.</p>
-<ul>
-  <li><span class="ok">Không cần cấu hình gì thêm.</span> Chỉ cần chắc chắn proxy
-  đang <strong>kết nối</strong> (biểu tượng chìa khóa VPN hiện) trước khi mở
-  trình duyệt hay ứng dụng.</li>
-  <li>Xem lưu ý về proxy hỗ trợ UDP bên dưới — nó quyết định WebRTC
-  <em>chạy qua proxy</em> hay chỉ bị <em>chặn</em> (cả hai đều an toàn, không lộ IP).</li>
-</ul>
-
-<h2>Máy tính — macOS, Linux &amp; Windows</h2>
-<p>Trên máy tính, mặc định proxy là một listener <strong>SOCKS/HTTP</strong> nội
-bộ, không thấy được UDP trực tiếp của WebRTC. Bạn có hai cách để chặn lộ IP.</p>
-
-<h3>Cách A — TUN mode (khuyến nghị)</h3>
-<p>TUN mode định tuyến <strong>toàn bộ</strong> traffic của thiết bị qua một giao
-diện mạng ảo — kể cả UDP — nên WebRTC được bảo vệ tự động cho mọi ứng dụng, không
-cần chỉnh từng trình duyệt.</p>
-<ul>
-  <li>Bật ở <strong>Settings → Advanced → TUN mode</strong> (hoặc nút bật trên
-  thanh menu), rồi bật proxy.</li>
-  <li>Cần quyền quản trị (TUN chạy dưới quyền root), nên khi bật proxy sẽ hỏi mật
-  khẩu.</li>
-  <li>UDP của WebRTC khi đó sẽ đi qua proxy (nếu là SOCKS5 có hỗ trợ UDP) hoặc bị
-  chặn (nếu không) — xem lưu ý bên dưới.</li>
-  <li>Giữ <strong>“UDP direct fallback” tắt</strong> (mặc định). Bật nó sẽ cho
-  UDP thoát ra thẳng khi tuyến không mang được UDP, có thể gây lộ IP.</li>
-</ul>
-
-<h3>Cách B — Chỉnh trình duyệt (nếu muốn dùng chế độ SOCKS)</h3>
-<p>Nếu bạn vẫn dùng proxy SOCKS/HTTP thường, hãy ép trình duyệt ngừng gửi UDP
-WebRTC đi thẳng:</p>
-<ul>
-  <li><strong>Chrome / Edge / Brave:</strong> cài extension kiểm soát WebRTC (ví
-  dụ “WebRTC Network Limiter” / “WebRTC Leak Prevent”) và đặt về
-  <em>“Use my proxy server (if present)”</em> — tương đương policy
-  <code>WebRTCIPHandlingPolicy = disable_non_proxied_udp</code>, để WebRTC chỉ đi
-  qua proxy. (Máy có quản lý có thể set policy này trực tiếp.)</li>
-  <li><strong>Firefox:</strong> mở <code>about:config</code> và đặt
-  <code>media.peerconnection.ice.proxy_only = true</code> (chỉ định tuyến ICE qua
-  proxy), hoặc <code>media.peerconnection.enabled = false</code> để tắt hẳn
-  WebRTC.</li>
-  <li><strong>Safari:</strong> Safari không có công tắc ép WebRTC-chỉ-qua-proxy
-  đáng tin cậy — hãy dùng <strong>TUN mode</strong> (Cách A).</li>
-</ul>
-
-<h2>Lưu ý: proxy của bạn có mang UDP không?</h2>
-<p>WebRTC là UDP. Việc nó <em>chạy được qua proxy</em> hay chỉ bị <em>chặn</em>
-phụ thuộc loại proxy mà traffic được định tuyến tới — nhưng trong mọi trường hợp
-an toàn, IP thật của bạn vẫn được giấu:</p>
-<table>
-  <tr><th>Tuyến</th><th>Kết quả WebRTC</th></tr>
-  <tr><td><strong>SOCKS5</strong> có hỗ trợ UDP</td><td><span class="ok">Chạy được</span> — ra ngoài bằng IP của proxy.</td></tr>
-  <tr><td>SOCKS5 không hỗ trợ UDP, hoặc SSH / HTTP / Block</td><td><span class="ok">Bị chặn</span> — WebRTC không lấy được địa chỉ (không lộ IP).</td></tr>
-  <tr><td><strong>Direct</strong> (host đó không qua proxy)</td><td><span class="warn">Dùng IP thật</span> — theo thiết kế, tuyến đó không proxy.</td></tr>
-</table>
-<p>Vậy để WebRTC thực sự <em>hoạt động qua proxy</em> (thay vì chỉ bị chặn),
-proxy mặc định — hoặc rule mà host STUN khớp — nên là một
-<strong>máy chủ SOCKS5 có hỗ trợ UDP&nbsp;ASSOCIATE</strong>. Proxy SSH và HTTP
-không mang được UDP; WebRTC sẽ bị chặn an toàn.</p>
-
-<h2>Kiểm tra lại</h2>
-<ol>
-  <li>Bật proxy (TUN mode trên máy tính; VPN đang kết nối trên điện thoại).</li>
-  <li>Mở <a href="https://browserleaks.com/webrtc">browserleaks.com/webrtc</a>.</li>
-  <li><strong>Public IP</strong> ở mục WebRTC phải hiển thị vị trí proxy — hoặc để
-  trống — và không được trùng IPv4 <em>lẫn</em> IPv6 thật của bạn.</li>
-</ol>
+<p class="meta">Lưu ý: một số proxy không mang được traffic gọi video, nên WebRTC
+có thể ngừng hoạt động khi được bảo vệ. Vậy là ổn — nghĩa là IP của bạn không bị lộ.</p>
 
 <hr>
-<footer>
-<p><a href="index.html">← Về trang Proxy Switchboard</a> · Thắc mắc:
-<a href="mailto:phil@trinh.uk">phil@trinh.uk</a></p>
-<p>© 2026 Proxy Switchboard.</p>
-</footer>
+<footer><a href="index.html">← Về trang Proxy Switchboard</a> · <a href="mailto:phil@trinh.uk">phil@trinh.uk</a></footer>
 </body>
 </html>

@@ -4,160 +4,73 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>WebRTC & IP Leaks — Proxy Switchboard</title>
-<meta name="description" content="How to stop WebRTC from leaking your real IP address while using Proxy Switchboard, on desktop and mobile.">
+<meta name="description" content="Stop WebRTC from leaking your real IP while using Proxy Switchboard, on phone and computer.">
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/png" href="logo.png">
 <style>
   :root { color-scheme: light dark; }
   * { box-sizing: border-box; }
   body {
-    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
+    font: 17px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 640px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem;
     color: #1d1d1f; background: #fff;
   }
-  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 .25rem; }
-  h2 { font-size: 1.25rem; margin: 2.25rem 0 .5rem; }
-  h3 { font-size: 1.05rem; margin: 1.5rem 0 .35rem; }
-  .meta { color: #6e6e73; font-size: .9rem; margin-bottom: 2rem; }
+  h1 { font-size: 1.8rem; line-height: 1.2; margin: 0 0 .25rem; }
+  h2 { font-size: 1.2rem; margin: 2rem 0 .4rem; }
+  .meta { color: #6e6e73; font-size: .9rem; }
+  .lang { font-size: .9rem; margin: .25rem 0 2rem; }
   p, li { margin: .5rem 0; }
-  ul, ol { padding-left: 1.25rem; }
+  ul { padding-left: 1.2rem; }
   a { color: #0066cc; }
-  code { background: #f2f2f7; padding: .1em .35em; border-radius: 4px; font-size: .9em; }
+  code { background: #f2f2f7; padding: .1em .35em; border-radius: 4px; font-size: .88em; }
   hr { border: none; border-top: 1px solid #d2d2d7; margin: 2.5rem 0; }
   footer { color: #6e6e73; font-size: .85rem; }
-  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .95rem; }
-  th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid #d2d2d7; vertical-align: top; }
-  th { font-weight: 600; }
-  .note {
-    background: #f2f2f7; border-left: 3px solid #0066cc; border-radius: 6px;
-    padding: .75rem 1rem; margin: 1.25rem 0;
-  }
-  .ok { color: #0a7d32; font-weight: 600; }
-  .warn { color: #b3300b; font-weight: 600; }
+  .box { background: #f2f2f7; border-radius: 10px; padding: .5rem 1.1rem; margin: 1.25rem 0; }
   @media (prefers-color-scheme: dark) {
     body { color: #e8e8ed; background: #1c1c1e; }
-    a { color: #6db3ff; }
-    code { background: #2c2c2e; }
-    .meta, footer { color: #98989d; }
-    hr, th, td { border-color: #3a3a3c; }
-    .note { background: #2c2c2e; border-left-color: #6db3ff; }
-    .ok { color: #4cd371; }
-    .warn { color: #ff8a65; }
+    a { color: #6db3ff; } code { background: #2c2c2e; }
+    .meta, .lang, footer { color: #98989d; }
+    hr { border-top-color: #3a3a3c; } .box { background: #2c2c2e; }
   }
 </style>
 </head>
 <body>
 <h1>WebRTC &amp; IP leaks</h1>
-<p class="meta">Proxy Switchboard · Keeping your real IP hidden when a proxy is on</p>
-<p style="font-size:.9rem;margin-bottom:2rem">🌐 English · <a href="webrtc_vi.html">Tiếng Việt</a></p>
+<p class="meta">Proxy Switchboard</p>
+<p class="lang">🌐 English · <a href="webrtc_vi.html">Tiếng Việt</a></p>
 
-<p>Even with a proxy turned on, a feature called <strong>WebRTC</strong> can reveal
-your real IP address. This guide explains why, and how to stop it on both
-desktop and mobile.</p>
+<p>Even with the proxy on, a browser feature called <strong>WebRTC</strong> can
+still reveal your real IP address. Here's how to stop it.</p>
 
-<h2>Why WebRTC can leak</h2>
-<p>WebRTC (used by video calls, voice chat, and some websites for peer-to-peer
-connections) discovers your public IP by talking to <strong>STUN servers over
-UDP, directly</strong>. That direct UDP path goes <em>around</em> an app-level
-<strong>SOCKS/HTTP proxy</strong> — which only carries the TCP connections the
-browser explicitly sends to it. So ordinary requests correctly show the proxy's
-IP, while WebRTC can still expose your real one — including your real
-<strong>IPv6</strong> address, even when the rest of your IPv6 is disabled.</p>
+<h2>📱 Phone (Android / iOS)</h2>
+<p>You're already protected — the app runs as a VPN and covers everything. Just
+keep the proxy <strong>connected</strong>. Nothing else to do.</p>
 
-<div class="note">
-<strong>Test it yourself:</strong> with the proxy on, open
-<a href="https://browserleaks.com/webrtc">browserleaks.com/webrtc</a>
-(or <a href="https://browserleaks.com/ip">/ip</a>). Under <em>WebRTC</em>, the
-Public IP should be your <strong>proxy's</strong> IP (or blank) — <strong>not</strong>
-your real one. Check both IPv4 and IPv6.
+<h2>💻 Computer (Mac / Windows / Linux)</h2>
+<p>Turn on <strong>TUN mode</strong> in the app (Settings → Advanced, or the
+menu). It protects every app automatically. You'll be asked for your password
+the first time.</p>
+
+<div class="box">
+<p><strong>Don't want TUN mode?</strong> Fix it in your browser instead:</p>
+<ul>
+  <li><strong>Chrome / Edge / Brave</strong> — install the “WebRTC Leak Prevent”
+  extension and set it to <em>use your proxy</em>.</li>
+  <li><strong>Firefox</strong> — open <code>about:config</code>, set
+  <code>media.peerconnection.enabled</code> to <code>false</code>.</li>
+  <li><strong>Safari</strong> — use TUN mode above.</li>
+</ul>
 </div>
 
-<h2>Quick answer</h2>
-<table>
-  <tr><th>Platform</th><th>How to stop the leak</th></tr>
-  <tr><td><strong>Mobile</strong> (Android / iOS)</td><td><span class="ok">Already protected</span> — the app runs as a VPN and captures all traffic (incl. UDP). Just keep the proxy connected.</td></tr>
-  <tr><td><strong>Desktop</strong> (macOS / Linux / Windows)</td><td>Turn on <strong>TUN mode</strong> (best), <em>or</em> apply a browser setting (below).</td></tr>
-</table>
+<h2>✅ Check it worked</h2>
+<p>With the proxy on, open <a href="https://browserleaks.com/webrtc">browserleaks.com/webrtc</a>.
+The IP it shows should be your <strong>proxy's</strong> — not your real one.</p>
 
-<h2>Mobile — Android &amp; iOS</h2>
-<p>On mobile, Proxy Switchboard runs as a system <strong>VPN</strong>
-(Android VpnService / iOS Network Extension). That is full tunnel-mode: it
-captures <strong>every</strong> connection your device makes, including the UDP
-that WebRTC uses. So when the proxy is on, WebRTC is routed through your proxy or
-blocked — it <strong>cannot</strong> reach out directly to leak your real IP.</p>
-<ul>
-  <li><span class="ok">No extra setup.</span> Simply make sure the proxy is
-  <strong>connected</strong> (the VPN key icon is showing) before you open the
-  browser or app.</li>
-  <li>See the caveat on UDP-capable proxies below — it decides whether WebRTC
-  <em>works via the proxy</em> or is simply <em>blocked</em> (both are safe; neither leaks).</li>
-</ul>
-
-<h2>Desktop — macOS, Linux &amp; Windows</h2>
-<p>On desktop the proxy is a local <strong>SOCKS/HTTP</strong> listener by
-default, which cannot see WebRTC's direct UDP. You have two ways to close the
-leak.</p>
-
-<h3>Option A — TUN mode (recommended)</h3>
-<p>TUN mode routes <strong>all</strong> of your device's traffic through a virtual
-network interface — including UDP — so WebRTC is covered automatically, for
-every app, with no per-browser configuration.</p>
-<ul>
-  <li>Enable it in <strong>Settings → Advanced → TUN mode</strong> (or the
-  menu-bar toggle), then turn the proxy on.</li>
-  <li>It needs administrator rights (TUN runs as root), so turning the proxy on
-  will prompt for your password.</li>
-  <li>WebRTC's UDP is then sent through your proxy (if it's a UDP-capable SOCKS5)
-  or dropped (if not) — see the caveat below.</li>
-  <li>Leave <strong>“UDP direct fallback” off</strong> (the default). Turning it
-  on lets UDP escape directly when the route can't carry it, which can leak.</li>
-</ul>
-
-<h3>Option B — Browser setting (if you prefer SOCKS mode)</h3>
-<p>If you keep using the plain SOCKS/HTTP proxy, force your browser to stop
-sending WebRTC UDP directly:</p>
-<ul>
-  <li><strong>Chrome / Edge / Brave:</strong> install a WebRTC-control extension
-  (e.g. “WebRTC Network Limiter” / “WebRTC Leak Prevent”) and set it to
-  <em>“Use my proxy server (if present)”</em> — this sets the policy
-  <code>WebRTCIPHandlingPolicy = disable_non_proxied_udp</code>, so WebRTC only
-  goes through the proxy. (Managed devices can set that policy directly.)</li>
-  <li><strong>Firefox:</strong> open <code>about:config</code> and set
-  <code>media.peerconnection.ice.proxy_only = true</code> (route ICE only via the
-  proxy), or <code>media.peerconnection.enabled = false</code> to disable WebRTC
-  entirely.</li>
-  <li><strong>Safari:</strong> Safari doesn't expose a reliable WebRTC-only-via-proxy
-  switch — use <strong>TUN mode</strong> (Option A) instead.</li>
-</ul>
-
-<h2>Caveat: does your proxy carry UDP?</h2>
-<p>WebRTC is UDP. Whether it <em>works through the proxy</em> or is simply
-<em>blocked</em> depends on the proxy type your traffic is routed to — but in all
-safe cases your real IP stays hidden:</p>
-<table>
-  <tr><th>Route</th><th>WebRTC result</th></tr>
-  <tr><td><strong>SOCKS5</strong> with UDP support</td><td><span class="ok">Works</span> — exits via the proxy IP.</td></tr>
-  <tr><td>SOCKS5 without UDP, or SSH / HTTP / Block</td><td><span class="ok">Blocked</span> — WebRTC gets no address (no leak).</td></tr>
-  <tr><td><strong>Direct</strong> (no proxy for that host)</td><td><span class="warn">Uses your real IP</span> — by design, that route is unproxied.</td></tr>
-</table>
-<p>So for WebRTC to actually function <em>through</em> the proxy (rather than just
-be blocked), your default proxy — or the rule the STUN host matches — should be a
-<strong>SOCKS5 server that supports UDP&nbsp;ASSOCIATE</strong>. SSH and HTTP
-proxies can't carry UDP; WebRTC is safely dropped instead.</p>
-
-<h2>Verify</h2>
-<ol>
-  <li>Turn the proxy on (TUN mode on desktop; VPN connected on mobile).</li>
-  <li>Open <a href="https://browserleaks.com/webrtc">browserleaks.com/webrtc</a>.</li>
-  <li>The WebRTC <strong>Public IP</strong> should show your proxy location — or
-  be empty — and must not match your real IPv4 <em>or</em> IPv6.</li>
-</ol>
+<p class="meta">Note: some proxies can't carry video-call traffic, so WebRTC may
+simply stop working when protected. That's fine — it means your IP isn't
+leaking.</p>
 
 <hr>
-<footer>
-<p><a href="index.html">← Back to Proxy Switchboard</a> · Questions:
-<a href="mailto:phil@trinh.uk">phil@trinh.uk</a></p>
-<p>© 2026 Proxy Switchboard.</p>
-</footer>
+<footer><a href="index.html">← Back to Proxy Switchboard</a> · <a href="mailto:phil@trinh.uk">phil@trinh.uk</a></footer>
 </body>
 </html>
