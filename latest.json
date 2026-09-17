@@ -1,6 +1,6 @@
 {
-  "version": "1.4.9",
-  "notes": "Much faster WireGuard proxy speeds, warm connections for quicker stream starts, CIDR hints in the rule editor, a Test Route that explains why a route fails, cleaner UDP handling through proxies, and a built-in WebRTC leak guide (About WebRTC Leaks in settings). Android: fixes a rare startup crash after restoring from a backup.",
+  "version": "1.4.11",
+  "notes": "New VLESS, Trojan and Shadowsocks 2022 proxies on every platform. WireGuard: DNS lookups now recurse correctly, retry over HTTPS when a VPN endpoint hijacks DNS, and UDP/QUIC travels through the tunnel; stuck connections time out instead of hanging. Android imports WireGuard .conf files. Windows installs per-user with no admin prompt.",
   "downloads": {
     "windows-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/latest/download/ProxySwitchboard-windows-amd64.zip",
     "linux-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/latest/download/ProxySwitchboard-linux-amd64.zip",
