@@ -1,6 +1,6 @@
 {
-  "version": "1.4.17",
-  "notes": "Fixes a 1.4.16 bug on Android where direct connections could stop working entirely while proxied ones kept going. The engine now uses every DNS server the network provides, so one unresponsive server no longer breaks name lookups.",
+  "version": "1.4.18",
+  "notes": "Keeps a brief proxy stall from making the whole device look offline: the checks your system makes to detect internet access now always go direct. Also fixes failed name lookups inside a WireGuard tunnel piling up on each other, which could stall apps for a minute or more.",
   "downloads": {
     "windows-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/latest/download/ProxySwitchboard-windows-amd64.zip",
     "linux-amd64": "https://github.com/ptrinh/proxy-switchboard-dist/releases/latest/download/ProxySwitchboard-linux-amd64.zip",
